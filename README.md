@@ -14,9 +14,9 @@ Things you may want to cover:
 
 * Database creation
 
-### モデル構成
+### モデル-構成
 
-__Userテーブル__
+__User-テーブル__
 
 | カラム名    | データ型     | 制約 |
 |:-----------|:------------|:-------------|
@@ -25,33 +25,40 @@ __Userテーブル__
 | passward   | string      |  length: { minimum: 8, maximum: 20 }  |
 
 - has_many: groups
-- has_many: messages, through: groups
+- has_many: groups, through: :group_users
 
-__Groupテーブル__
+__Group-テーブル__
 
 |  カラム名  |  データ型  |  制約  |
 |:-----------|:----------|:-------|
 | group_name | strings   | presence: true |
-| member_id  | references | foreign_key: true | 
 
-- has_many: users
+
 - has_many: messages
+- has_many: users, through: :group_users
 
+__GroupUser-テーブル__
 
-__Messageテーブル__
+|  カラム名  |  データ型  |  制約  |
+|:-----------|:----------|:-------|
+| group_id | references | foreign_key: true | 
+| user_id  | references | foreign_key: true | 
+
+- belongs_to: user
+- belongs_to: group
+
+__Message-テーブル__
 
 |  カラム名   |  データ型  |  制約  |
 |:-----------|:-----------|:-------|
 | group_id    | references | foreign_key: true | 
 | user_id　　　| references | foreign_key: true | 
-| message_body| strings    | presence: true    |
+| message_body| text    |  |
+| images     |  string   |  |  
 
 - belongs_to: user
 - belongs_to: group
 
-## 分からない所
-- [ ] UserテーブルとGroupモデルのリレーション
-- [ ] Groupテーブルのmember_idカラムが複数いれる場合の記述
 
 
 

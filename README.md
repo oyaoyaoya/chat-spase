@@ -14,9 +14,9 @@ Things you may want to cover:
 
 * Database creation
 
-### モデル構成
+### モデル-構成
 
-__Userテーブル__
+__User-テーブル__
 
 | カラム名    | データ型     | 制約 |
 |:-----------|:------------|:-------------|
@@ -27,7 +27,7 @@ __Userテーブル__
 - has_many: groups
 - has_many: messages, through: groups
 
-__Groupテーブル__
+__Group-テーブル__
 
 |  カラム名  |  データ型  |  制約  |
 |:-----------|:----------|:-------|
@@ -38,7 +38,7 @@ __Groupテーブル__
 - has_many: messages
 
 
-__Messageテーブル__
+__Message-テーブル__
 
 |  カラム名   |  データ型  |  制約  |
 |:-----------|:-----------|:-------|
@@ -49,7 +49,7 @@ __Messageテーブル__
 - belongs_to: user
 - belongs_to: group
 
-## 分からない所
+## -分からない所
 - [ ] UserテーブルとGroupモデルのリレーション
 - [ ] Groupテーブルのmember_idカラムが複数いれる場合の記述
 
